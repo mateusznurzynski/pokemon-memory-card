@@ -1,13 +1,16 @@
-import './App.css'
-import MenuPage from './components/MenuPage'
+import './App.css';
+import MenuPage from './components/MenuPage';
+import { useState } from 'react';
 
 function App() {
-
+  const [gameStatus, setGameStatus] = useState('menu');
   return (
     <>
-		<MenuPage />
+      {gameStatus === 'menu' ? (
+        <MenuPage onStatusChange={setGameStatus} />
+      ) : null}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
