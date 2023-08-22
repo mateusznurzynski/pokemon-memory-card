@@ -1,5 +1,6 @@
 import './App.css';
-import MenuPage from './components/MenuPage';
+import PageWrapper from './components/PageWrapper';
+import Menu from './components/Menu';
 import { useState } from 'react';
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
   return (
     <>
       {gameStatus === 'menu' ? (
-        <MenuPage onStatusChange={setGameStatus} />
+        <PageWrapper>
+          <Menu onStatusChange={setGameStatus} />
+        </PageWrapper>
       ) : null}
     </>
   );
