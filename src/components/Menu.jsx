@@ -1,4 +1,5 @@
 import MenuItem from './MenuItem';
+import '../styles/MenuPage.css';
 
 const repoLink = 'https://github.com/mateusznurzynski/pokemon-memory-card';
 

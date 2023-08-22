@@ -7,11 +7,9 @@ function App() {
   const [gameStatus, setGameStatus] = useState('menu');
   return (
     <>
-      {gameStatus === 'menu' ? (
-        <PageWrapper>
-          <Menu onStatusChange={setGameStatus} />
-        </PageWrapper>
-      ) : null}
+      <PageWrapper>
+        {gameStatus === 'menu' ? <Menu onStatusChange={setGameStatus} /> : null}
+      </PageWrapper>
     </>
   );
 }
