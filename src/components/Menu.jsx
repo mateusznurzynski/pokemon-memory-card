@@ -1,7 +1,9 @@
 import MenuItem from "./MenuItem";
 
+const repoLink = 'https://github.com/mateusznurzynski/pokemon-memory-card'
+
 const openRepo = ()=>{
-	window.open('https://github.com/mateusznurzynski/pokemon-memory-card', '_blank')
+	window.open(repoLink, '_blank')
 }
 
 function Menu() {
