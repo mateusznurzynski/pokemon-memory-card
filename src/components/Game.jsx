@@ -1,23 +1,50 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../styles/Game.css'
+import getRandomInt from '../utilities/RandomInt'
+
+const NUMBER_OF_CARDS = 12
+
+const getCardIds = (numberOfCards) => {
+  const cardIds = []
+
+  for (let i = 0; i < numberOfCards; i++) {
+    let id = null
+
+    while (!id) {
+      const newId = getRandomInt(1000)
+      if (!cardIds.includes(newId)) {
+        id = newId
+      }
+    }
+
+    cardIds.push(id)
+  }
+  return cardIds
+}
 
 function Game() {
+  const cardIds = useRef(getCardIds(NUMBER_OF_CARDS))
   const [cards, setCards] = useState([])
   const [status, setStatus] = useState('loading')
 
   useEffect(() => {
     const fetchCards = async () => {
-      const response = await fetch(
-        'https://pokeapi.co/api/v2/pokemon?limit=40&offset=0'
-      )
-      const newCards = await response.json()
-      setCards(newCards.results)
-      setStatus('active')
+      const newCards = await cardIds.current.map(async (cardId) => {
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${cardId}/`
+        )
+        const card = await response.json()
+        return card
+      })
+
+      Promise.all([...newCards]).then((values) => {
+        setCards(values)
+        setStatus('active')
+      })
     }
 
     fetchCards()
   }, [])
-  console.log(cards)
 
   let gameContent = null
   switch (status) {
