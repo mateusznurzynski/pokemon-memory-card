@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import '../styles/Game.css'
 import getRandomInt from '../utilities/RandomInt'
+import Card from './Card'
 
 const NUMBER_OF_CARDS = 12
 
@@ -29,12 +30,16 @@ function Game() {
 
   useEffect(() => {
     const fetchCards = async () => {
-      const newCards = await cardIds.current.map(async (cardId) => {
+      const newCards = cardIds.current.map(async (cardId) => {
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${cardId}/`
         )
         const card = await response.json()
-        return card
+        const frontImage = await fetch(card.sprites.front_default)
+        const parsedImage = await frontImage.blob()
+        const imageUrl = URL.createObjectURL(parsedImage)
+
+        return { ...card, imageSrc: imageUrl }
       })
 
       Promise.all([...newCards]).then((values) => {
@@ -55,11 +60,7 @@ function Game() {
       gameContent = (
         <div className='cards'>
           {cards.map((card) => {
-            return (
-              <div key={card.name} className='card'>
-                {card.name}
-              </div>
-            )
+            return <Card key={card.name} cardData={card} />
           })}
         </div>
       )
