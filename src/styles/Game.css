@@ -49,3 +49,10 @@
   top: 0px;
   padding: 30px;
 }
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px;
+}

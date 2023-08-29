@@ -2,6 +2,7 @@ import './App.css'
 import PageWrapper from './components/PageWrapper'
 import Menu from './components/Menu'
 import Game from './components/Game'
+import BackButton from './components/BackButton'
 import { useState } from 'react'
 
 function App() {
@@ -16,11 +17,14 @@ function App() {
       break
     case 'game':
       currentContent = (
-        <Game
-          setGameStatus={setGameStatus}
-          highScore={highScore}
-          setHighScore={setHighScore}
-        />
+        <>
+          <Game
+            setGameStatus={setGameStatus}
+            highScore={highScore}
+            setHighScore={setHighScore}
+          />
+          <BackButton setGameStatus={setGameStatus} />
+        </>
       )
       break
     default:
