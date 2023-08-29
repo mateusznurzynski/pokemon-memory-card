@@ -39,4 +39,11 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+
+.menu-item:hover::before {
+  content: '>';
+  position: absolute;
+  left: -20px;
 }
