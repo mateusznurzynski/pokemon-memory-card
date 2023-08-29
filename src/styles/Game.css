@@ -9,7 +9,8 @@
   width: 100%;
 }
 
-.card {
+.card,
+.loading-screen {
   display: flex;
   flex-direction: column;
   justify-content: center;
