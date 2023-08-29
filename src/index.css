@@ -15,8 +15,8 @@
   background-color: white;
 
   /* only for development */
-  background-color: #222;
-  color: rgba(255, 255, 255, 0.87);
+  /* background-color: #222;
+  color: rgba(255, 255, 255, 0.87); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
