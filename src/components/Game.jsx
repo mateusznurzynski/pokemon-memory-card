@@ -71,8 +71,8 @@ function Game({ setGameStatus, highScore, setHighScore }) {
       setGameStatus('menu')
     } else {
       const newScore = score + 1
+      checkHighScore(newScore)
       if (newScore === NUMBER_OF_CARDS) {
-        checkHighScore(newScore)
         setGameStatus('menu')
       }
       setScore(newScore)
