@@ -59,16 +59,25 @@ function Game({ setGameStatus, highScore, setHighScore }) {
     setCards(shuffledArray)
   }
 
-  const nextTurn = () => {
-    setScore(score + 1)
-    shuffleCards()
+  const checkHighScore = (newScore) => {
+    if (newScore > highScore) {
+      setHighScore(newScore)
+    }
   }
 
-  const stopGame = () => {
-    if (score > highScore) {
-      setHighScore(score)
+  const nextTurn = (playerMistake) => {
+    if (playerMistake) {
+      checkHighScore(score)
+      setGameStatus('menu')
+    } else {
+      const newScore = score + 1
+      if (newScore === NUMBER_OF_CARDS) {
+        checkHighScore(newScore)
+        setGameStatus('menu')
+      }
+      setScore(newScore)
+      setCards(shuffleArray(cards))
     }
-    setGameStatus('menu')
   }
 
   let gameContent = null
@@ -83,12 +92,7 @@ function Game({ setGameStatus, highScore, setHighScore }) {
           <div className='cards'>
             {cards.map((card) => {
               return (
-                <Card
-                  key={card.name}
-                  cardData={card}
-                  nextTurn={nextTurn}
-                  stopGame={stopGame}
-                />
+                <Card key={card.name} cardData={card} nextTurn={nextTurn} />
               )
             })}
           </div>

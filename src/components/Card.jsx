@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Card({ cardData, nextTurn, stopGame }) {
+function Card({ cardData, nextTurn }) {
   const [clicked, setClicked] = useState(false)
 
   const handleClick = (e) => {
@@ -8,7 +8,7 @@ function Card({ cardData, nextTurn, stopGame }) {
       setClicked(true)
       nextTurn()
     } else {
-      stopGame()
+      nextTurn(true)
     }
   }
 
