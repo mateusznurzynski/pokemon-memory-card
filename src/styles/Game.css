@@ -16,3 +16,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.game-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.score-display {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 30px;
+}

@@ -3,6 +3,7 @@ import '../styles/Game.css'
 import getRandomInt from '../utilities/RandomInt'
 import shuffleArray from '../utilities/ArrayShuffle'
 import Card from './Card'
+import ScoreDisplay from './ScoreDisplay'
 
 const NUMBER_OF_CARDS = 12
 
@@ -77,17 +78,20 @@ function Game({ setGameStatus, highScore, setHighScore }) {
       break
     case 'active':
       gameContent = (
-        <div className='cards'>
-          {cards.map((card) => {
-            return (
-              <Card
-                key={card.name}
-                cardData={card}
-                nextTurn={nextTurn}
-                stopGame={stopGame}
-              />
-            )
-          })}
+        <div className='game-content'>
+          <ScoreDisplay highScore={highScore} score={score} />
+          <div className='cards'>
+            {cards.map((card) => {
+              return (
+                <Card
+                  key={card.name}
+                  cardData={card}
+                  nextTurn={nextTurn}
+                  stopGame={stopGame}
+                />
+              )
+            })}
+          </div>
         </div>
       )
       break
