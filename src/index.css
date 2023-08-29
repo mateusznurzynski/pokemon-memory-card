@@ -4,10 +4,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: unset;
+}
+
+@font-face {
+  font-family: Pixel;
+  src: url(./assets/pixel-font.ttf);
 }
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  font-family: Pixel, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
