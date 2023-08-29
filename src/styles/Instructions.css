@@ -3,6 +3,10 @@
   flex-direction: column;
   margin-top: 25px;
   gap: 10px;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border: 1px black solid;
 }
 
 .instructions h2 {
@@ -12,4 +16,8 @@
 
 .instructions li {
   font-size: 1.2rem;
+}
+
+.instructions li::marker {
+  content: '>';
 }
