@@ -1,0 +1,15 @@
+.instructions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+.instructions h2 {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.instructions li {
+  font-size: 1.2rem;
+}

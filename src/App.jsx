@@ -4,6 +4,7 @@ import Menu from './components/Menu'
 import Game from './components/Game'
 import BackButton from './components/BackButton'
 import { useState } from 'react'
+import Instructions from './components/Instructions'
 
 function App() {
   const [gameStatus, setGameStatus] = useState('menu')
@@ -23,6 +24,14 @@ function App() {
             highScore={highScore}
             setHighScore={setHighScore}
           />
+          <BackButton setGameStatus={setGameStatus} />
+        </>
+      )
+      break
+    case 'instructions':
+      currentContent = (
+        <>
+          <Instructions />
           <BackButton setGameStatus={setGameStatus} />
         </>
       )

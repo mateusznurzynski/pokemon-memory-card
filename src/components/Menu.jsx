@@ -17,7 +17,12 @@ function Menu({ onStatusChange, highScore }) {
           onStatusChange('game')
         }}
       />
-      <MenuItem text='HOW TO PLAY?' />
+      <MenuItem
+        text='HOW TO PLAY?'
+        onClick={() => {
+          onStatusChange('instructions')
+        }}
+      />
       <MenuItem
         text='GITHUB REPO'
         onClick={() => {
