@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import '../styles/Game.css'
 import getRandomInt from '../utilities/RandomInt'
+import shuffleArray from '../utilities/ArrayShuffle'
 import Card from './Card'
 
 const NUMBER_OF_CARDS = 12
@@ -23,10 +24,11 @@ const getCardIds = (numberOfCards) => {
   return cardIds
 }
 
-function Game() {
+function Game({ setGameStatus, highScore, setHighScore }) {
   const cardIds = useRef(getCardIds(NUMBER_OF_CARDS))
   const [cards, setCards] = useState([])
   const [status, setStatus] = useState('loading')
+  const [score, setScore] = useState(0)
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -51,6 +53,23 @@ function Game() {
     fetchCards()
   }, [])
 
+  const shuffleCards = () => {
+    const shuffledArray = shuffleArray(cards)
+    setCards(shuffledArray)
+  }
+
+  const nextTurn = () => {
+    setScore(score + 1)
+    shuffleCards()
+  }
+
+  const stopGame = () => {
+    if (score > highScore) {
+      setHighScore(score)
+    }
+    setGameStatus('menu')
+  }
+
   let gameContent = null
   switch (status) {
     case 'loading':
@@ -60,7 +79,14 @@ function Game() {
       gameContent = (
         <div className='cards'>
           {cards.map((card) => {
-            return <Card key={card.name} cardData={card} />
+            return (
+              <Card
+                key={card.name}
+                cardData={card}
+                nextTurn={nextTurn}
+                stopGame={stopGame}
+              />
+            )
           })}
         </div>
       )
