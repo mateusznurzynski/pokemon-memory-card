@@ -7,6 +7,7 @@
   padding: 20px 30px;
   border-radius: 5px;
   border: 1px black solid;
+  max-width: 70%;
 }
 
 .instructions h2 {
