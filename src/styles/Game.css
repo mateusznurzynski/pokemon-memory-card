@@ -19,6 +19,10 @@
   align-items: center;
 }
 
+.loading-screen {
+  margin-top: 50px;
+}
+
 .card {
   margin-right: auto;
   margin-left: auto;

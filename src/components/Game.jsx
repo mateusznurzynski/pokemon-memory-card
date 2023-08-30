@@ -4,6 +4,7 @@ import getRandomInt from '../utilities/RandomInt'
 import shuffleArray from '../utilities/ArrayShuffle'
 import Card from './Card'
 import ScoreDisplay from './ScoreDisplay'
+import LoadingScreen from './LoadingScreen'
 
 const NUMBER_OF_CARDS = 12
 
@@ -83,7 +84,7 @@ function Game({ setGameStatus, highScore, setHighScore }) {
   let gameContent = null
   switch (status) {
     case 'loading':
-      gameContent = <div className='loading-screen'>Loading...</div>
+      gameContent = <LoadingScreen />
       break
     case 'active':
       gameContent = (
