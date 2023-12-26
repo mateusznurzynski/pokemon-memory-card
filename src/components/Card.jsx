@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 function Card({ cardData, nextTurn }) {
   const [clicked, setClicked] = useState(false)
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (!clicked) {
       setClicked(true)
       nextTurn()
@@ -20,6 +21,11 @@ function Card({ cardData, nextTurn }) {
       <div className='card-name'>{cardData.name}</div>
     </div>
   )
+}
+
+Card.propTypes = {
+  nextTurn: PropTypes.func.isRequired,
+  cardData: PropTypes.object.isRequired,
 }
 
 export default Card

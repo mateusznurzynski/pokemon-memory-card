@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function MenuItem({ text, onClick, iconElement }) {
   return (
     <div onClick={onClick} className='menu-item'>
@@ -7,6 +9,12 @@ function MenuItem({ text, onClick, iconElement }) {
       </div>
     </div>
   )
+}
+
+MenuItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  iconElement: PropTypes.node,
 }
 
 export default MenuItem

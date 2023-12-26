@@ -5,6 +5,7 @@ import shuffleArray from '../utilities/ArrayShuffle'
 import Card from './Card'
 import ScoreDisplay from './ScoreDisplay'
 import LoadingScreen from './LoadingScreen'
+import PropTypes from 'prop-types'
 
 const NUMBER_OF_CARDS = 12
 
@@ -77,7 +78,7 @@ function Game({ setGameStatus, highScore, setHighScore }) {
         setGameStatus('menu')
       }
       setScore(newScore)
-      setCards(shuffleArray(cards))
+      shuffleCards()
     }
   }
 
@@ -106,6 +107,12 @@ function Game({ setGameStatus, highScore, setHighScore }) {
   }
 
   return <div className='game'>{gameContent}</div>
+}
+
+Game.propTypes = {
+  setGameStatus: PropTypes.func.isRequired,
+  setHighScore: PropTypes.func.isRequired,
+  highScore: PropTypes.number.isRequired,
 }
 
 export default Game

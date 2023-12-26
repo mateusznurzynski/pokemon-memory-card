@@ -1,6 +1,7 @@
 import MenuItem from './MenuItem'
 import '../styles/MenuPage.css'
 import ScoreDisplay from './ScoreDisplay'
+import PropTypes from 'prop-types'
 
 const repoLink = 'https://github.com/mateusznurzynski/pokemon-memory-card'
 
@@ -44,6 +45,11 @@ function Menu({ onStatusChange, highScore }) {
       <ScoreDisplay highScore={highScore} />
     </div>
   )
+}
+
+Menu.propTypes = {
+  onStatusChange: PropTypes.func.isRequired,
+  highScore: PropTypes.number.isRequired,
 }
 
 export default Menu

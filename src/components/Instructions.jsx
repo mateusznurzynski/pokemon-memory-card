@@ -1,4 +1,5 @@
 import '../styles/Instructions.css'
+import PropTypes from 'prop-types'
 
 function Instructions({ children }) {
   return (
@@ -14,6 +15,10 @@ function Instructions({ children }) {
       <div className='instructions-controls'>{children}</div>
     </div>
   )
+}
+
+Instructions.propTypes = {
+  children: PropTypes.node,
 }
 
 export default Instructions

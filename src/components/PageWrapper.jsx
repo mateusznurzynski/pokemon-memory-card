@@ -1,4 +1,5 @@
-import Logo from '../assets/logo.png';
+import Logo from '../assets/logo.png'
+import PropTypes from 'prop-types'
 
 function MenuPage({ children }) {
   return (
@@ -9,7 +10,11 @@ function MenuPage({ children }) {
       </div>
       {children}
     </div>
-  );
+  )
 }
 
-export default MenuPage;
+MenuPage.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default MenuPage

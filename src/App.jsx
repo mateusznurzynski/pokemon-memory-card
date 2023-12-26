@@ -32,7 +32,7 @@ function App() {
       currentContent = (
         <>
           <Instructions>
-            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />{' '}
+            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
           </Instructions>
         </>
       )
