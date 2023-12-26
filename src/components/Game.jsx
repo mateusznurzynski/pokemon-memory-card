@@ -8,7 +8,7 @@ import LoadingScreen from './LoadingScreen'
 
 const NUMBER_OF_CARDS = 12
 
-const getCardIds = (numberOfCards) => {
+const getCardIds = (numberOfCards = NUMBER_OF_CARDS) => {
   const cardIds = []
 
   for (let i = 0; i < numberOfCards; i++) {
