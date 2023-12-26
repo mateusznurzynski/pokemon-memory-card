@@ -22,3 +22,16 @@
 .instructions li::marker {
   content: '>';
 }
+
+.instructions-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-button {
+  padding: 8px;
+  background-color: var(--danger);
+  border-radius: 5px;
+  border: 1px black solid;
+  cursor: pointer;
+}

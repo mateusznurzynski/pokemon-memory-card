@@ -24,15 +24,16 @@ function App() {
             highScore={highScore}
             setHighScore={setHighScore}
           />
-          <BackButton setGameStatus={setGameStatus} />
+          <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
         </>
       )
       break
     case 'instructions':
       currentContent = (
         <>
-          <Instructions />
-          <BackButton setGameStatus={setGameStatus} />
+          <Instructions>
+            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />{' '}
+          </Instructions>
         </>
       )
       break
