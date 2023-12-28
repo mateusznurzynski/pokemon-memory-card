@@ -69,3 +69,20 @@
   border: 1px black solid;
   cursor: pointer;
 }
+
+.end-screen {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 10px;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 5px;
+  border: 1px black solid;
+  max-width: 70%;
+}
+
+.end-screen-controls {
+  display: flex;
+  justify-content: flex-end;
+}

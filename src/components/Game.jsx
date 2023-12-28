@@ -27,7 +27,7 @@ const getCardIds = (numberOfCards = NUMBER_OF_CARDS) => {
   return cardIds
 }
 
-function Game({ setGameStatus, highScore, setHighScore }) {
+function Game({ setGameStatus, endGame, highScore, setHighScore }) {
   const cardIds = useRef(getCardIds(NUMBER_OF_CARDS))
   const [cards, setCards] = useState([])
   const [status, setStatus] = useState('loading')
@@ -70,12 +70,12 @@ function Game({ setGameStatus, highScore, setHighScore }) {
   const nextTurn = (playerMistake) => {
     if (playerMistake) {
       checkHighScore(score)
-      setGameStatus('menu')
+      endGame(score, false)
     } else {
       const newScore = score + 1
       checkHighScore(newScore)
       if (newScore === NUMBER_OF_CARDS) {
-        setGameStatus('menu')
+        endGame(newScore, true)
       }
       setScore(newScore)
       shuffleCards()
@@ -113,6 +113,7 @@ Game.propTypes = {
   setGameStatus: PropTypes.func.isRequired,
   setHighScore: PropTypes.func.isRequired,
   highScore: PropTypes.number.isRequired,
+  endGame: PropTypes.func.isRequired,
 }
 
 export default Game

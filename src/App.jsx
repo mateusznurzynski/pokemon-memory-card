@@ -5,11 +5,25 @@ import Game from './components/Game'
 import BackButton from './components/BackButton'
 import { useState } from 'react'
 import Instructions from './components/Instructions'
+import EndScreen from './components/EndScreen'
 
 function App() {
   const [gameStatus, setGameStatus] = useState('menu')
   const [highScore, setHighScore] = useState(0)
+  const [endScreenData, setEndScreenData] = useState({
+    score: 0,
+    isVictory: false,
+  })
   let currentContent = null
+
+  const endGame = (score, isVictory = false) => {
+    setEndScreenData({
+      score,
+      isVictory,
+    })
+    setGameStatus('endscreen')
+  }
+
   switch (gameStatus) {
     case 'menu':
       currentContent = (
@@ -23,6 +37,7 @@ function App() {
             setGameStatus={setGameStatus}
             highScore={highScore}
             setHighScore={setHighScore}
+            endGame={endGame}
           />
           <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
         </>
@@ -34,6 +49,19 @@ function App() {
           <Instructions>
             <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
           </Instructions>
+        </>
+      )
+      break
+    case 'endscreen':
+      currentContent = (
+        <>
+          <EndScreen
+            score={endScreenData.score}
+            isVictory={endScreenData.isVictory}
+            highScore={highScore}
+          >
+            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
+          </EndScreen>
         </>
       )
       break
