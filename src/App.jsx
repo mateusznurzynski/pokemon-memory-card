@@ -39,7 +39,11 @@ function App() {
             setHighScore={setHighScore}
             endGame={endGame}
           />
-          <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
+          <BackButton
+            gameStatus={gameStatus}
+            setGameStatus={setGameStatus}
+            buttonContent='Back'
+          />
         </>
       )
       break
@@ -47,7 +51,11 @@ function App() {
       currentContent = (
         <>
           <Instructions>
-            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
+            <BackButton
+              gameStatus={gameStatus}
+              setGameStatus={setGameStatus}
+              buttonContent='Back'
+            />
           </Instructions>
         </>
       )
@@ -60,7 +68,11 @@ function App() {
             isVictory={endScreenData.isVictory}
             highScore={highScore}
           >
-            <BackButton gameStatus={gameStatus} setGameStatus={setGameStatus} />
+            <BackButton
+              gameStatus={gameStatus}
+              setGameStatus={setGameStatus}
+              buttonContent='Back to menu'
+            />
           </EndScreen>
         </>
       )

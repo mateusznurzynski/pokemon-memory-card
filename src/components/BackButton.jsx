@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function BackButton({ gameStatus, setGameStatus }) {
+function BackButton({ gameStatus, setGameStatus, buttonContent }) {
   return (
     <button
       className={gameStatus === 'game' ? 'back-button-fixed' : 'back-button'}
@@ -8,7 +8,7 @@ function BackButton({ gameStatus, setGameStatus }) {
         setGameStatus('menu')
       }}
     >
-      Back
+      {buttonContent}
     </button>
   )
 }
@@ -16,6 +16,7 @@ function BackButton({ gameStatus, setGameStatus }) {
 BackButton.propTypes = {
   gameStatus: PropTypes.string.isRequired,
   setGameStatus: PropTypes.func.isRequired,
+  buttonContent: PropTypes.node.isRequired,
 }
 
 export default BackButton
